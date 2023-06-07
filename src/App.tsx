@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
 
-function App() {
+const App: React.FC = () => {
+  // const [filmes, setFilmes] = useState([]);
+
+  // useEffect(() => {
+  //     getFilmes()
+  // },[])
+
+  // const getFilmes = async () => {
+  //   const response = await fetch(
+  //     `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_CHAVE}`
+  //   );
+  //   const data = await response.json()
+  //   setFilmes(data.results)
+  //   console.log(data)
+  // }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>test</h1>
     </div>
   );
 }
