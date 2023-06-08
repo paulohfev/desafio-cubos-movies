@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import styles from './PaginaHome.module.scss';
 
-const App: React.FC = () => {
+const PaginaHome: React.FC = () => {
   // const [filmes, setFilmes] = useState([]);
 
   // useEffect(() => {
@@ -17,10 +18,12 @@ const App: React.FC = () => {
   // }
 
   return (
-    <div className="App">
-      <h1>test</h1>
+    <div className={styles.container}>
+      <div className={styles['container-campo']}>
+        <input className={styles['campo']} placeholder="Busque um filme por nome, ano ou gênero" />
+      </div>
     </div>
-  );
-}
+  )
+};
 
-export default App;
+export default PaginaHome;
