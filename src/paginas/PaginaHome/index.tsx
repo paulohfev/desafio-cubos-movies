@@ -1,27 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/store';
+import { obterFilmes, selectionarFilmes } from '../../slices/filmes.slice';
 import styles from './PaginaHome.module.scss';
+import ListaFilmes from '../../componentes/ListaFilmes';
 
 const PaginaHome: React.FC = () => {
-  // const [filmes, setFilmes] = useState([]);
+  const [valor, setValor] = useState('');
+  const dispatch = useAppDispatch();
 
-  // useEffect(() => {
-  //     getFilmes()
-  // },[])
-
-  // const getFilmes = async () => {
-  //   const response = await fetch(
-  //     `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIEDB_API_CHAVE}`
-  //   );
-  //   const data = await response.json()
-  //   setFilmes(data.results)
-  //   console.log(data)
-  // }
+  useEffect(() => {
+    dispatch(obterFilmes());
+  }, [dispatch]);
+  const filmes = useAppSelector(selectionarFilmes);
 
   return (
     <div className={styles.container}>
       <div className={styles['container-campo']}>
-        <input className={styles['campo']} placeholder="Busque um filme por nome, ano ou gênero" />
+        <input
+          className={styles['campo']}
+          onChange={(e) => e.target.value}
+          placeholder="Busque um filme por nome ou gênero"
+          value={valor}
+        />
       </div>
+
+      <section>
+        <ListaFilmes filmes={filmes.results} />
+      </section>
     </div>
   )
 };
