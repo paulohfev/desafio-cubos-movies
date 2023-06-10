@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { isEmpty } from 'lodash';
 import { useAppDispatch, useAppSelector } from '../../app/store';
-import { obterFilmes, selectionarFilmes } from '../../slices/filmes.slice';
+import { obterFilmesPorPesquisa, obterTodosFilmes, selectionarFilmes } from '../../slices/filmes.slice';
 import ListaFilmes from '../../componentes/ListaFilmes';
 import Paginacao from '../../componentes/Paginacao';
 import styles from './PaginaHome.module.scss';
@@ -13,11 +14,13 @@ const PaginaHome: React.FC = () => {
   useEffect(() => {
     const data = {
       page: paginaAtual,
-      query: valorPesquisa
+      query: valorPesquisa,
     }
-    dispatch(obterFilmes(data));
+
+    isEmpty(valorPesquisa) ? dispatch(obterTodosFilmes(paginaAtual)) : dispatch(obterFilmesPorPesquisa(data));
   }, [dispatch, paginaAtual, valorPesquisa]);
-  const filmes = useAppSelector(selectionarFilmes);
+  const filmes = useAppSelector(selectionarFilmes).filmesPorPesquisa;
+  const todosFilmes = useAppSelector(selectionarFilmes).todosFilmes;
 
   return (
     <div className={styles.container}>
@@ -31,9 +34,12 @@ const PaginaHome: React.FC = () => {
       </div>
 
       <section>
-        <ListaFilmes filmes={filmes.results} />
+        <ListaFilmes filmes={isEmpty(valorPesquisa) ? todosFilmes.results : filmes.results} />
 
-        <Paginacao setPaginaAtual={setPaginaAtual} totalPaginas={filmes.total_pages} />
+        <Paginacao
+          setPaginaAtual={setPaginaAtual}
+          totalPaginas={isEmpty(valorPesquisa) ? todosFilmes.total_pages : filmes.total_pages}
+        />
       </section>
     </div>
   )

@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import type { TypedUseSelectorHook } from 'react-redux';
 import filmesReducer from '../slices/filmes.slice';
+import todosFilmesReducer from '../slices/filmes.slice';
 import generosReducer from '../slices/generos.slice';
 
 export const store = configureStore({
   reducer: {
-    filmes: filmesReducer,
+    filmesPorPesquisa: filmesReducer,
+    todosFilmes: todosFilmesReducer,
     generos: generosReducer,
   },
 })
