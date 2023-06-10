@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { uniqueId } from 'lodash';
 import { useAppDispatch, useAppSelector } from '../../app/store';
 import { obterGeneros, selecionarGeneros } from '../../slices/generos.slice';
 import { GeneroFilme } from '../../interfaces/GeneroFilme';
@@ -25,6 +26,8 @@ const ListaGenerosFilme: React.FC<Props> = ({ idsGeneros }) => {
               <span>{genero.name}</span>
             </div>
           );
+        } else {
+          return <React.Fragment key={uniqueId()}></React.Fragment>;
         }
       })
     })

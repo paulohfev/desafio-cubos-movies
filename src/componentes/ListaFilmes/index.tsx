@@ -9,8 +9,6 @@ type Props = {
 }
 
 const ListaFilmes: React.FC<Props> = ({ filmes }) => {
-  // console.log(filmes)
-
   return (
     <div>
       {filmes?.map((filme) => {
@@ -19,9 +17,9 @@ const ListaFilmes: React.FC<Props> = ({ filmes }) => {
 
         return (
           <div className={styles['item-filme-container']} key={filme.id}>
-            <div>
+            {filme.poster_path && (
               <img alt={filme.title} className={styles.poster} src={URLImagemPoster} />
-            </div>
+            )}
 
             <div className={styles['item-filme-conteudo']}>
               <div className={styles['item-filme-cabecalho-container']}>

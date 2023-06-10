@@ -5,12 +5,15 @@ import styles from './PaginaHome.module.scss';
 import ListaFilmes from '../../componentes/ListaFilmes';
 
 const PaginaHome: React.FC = () => {
-  const [valor, setValor] = useState('');
+  const [valorPesquisa, setValorPesquisa] = useState('');
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(obterFilmes());
-  }, [dispatch]);
+    const data = {
+      query: valorPesquisa
+    }
+    dispatch(obterFilmes(data));
+  }, [dispatch, valorPesquisa]);
   const filmes = useAppSelector(selectionarFilmes);
 
   return (
@@ -18,9 +21,9 @@ const PaginaHome: React.FC = () => {
       <div className={styles['container-campo']}>
         <input
           className={styles['campo']}
-          onChange={(e) => e.target.value}
+          onChange={(e) => setValorPesquisa(e.target.value)}
           placeholder="Busque um filme por nome ou gênero"
-          value={valor}
+          value={valorPesquisa}
         />
       </div>
 

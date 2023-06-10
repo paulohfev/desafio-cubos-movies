@@ -1,10 +1,11 @@
-const obterGeneros = async () => {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_MOVIEDB_API_CHAVE}&language=pt-BR`
-  );
-  return response.json();
-}
+import theMovieDBAPIClient from "../app/axios";
+import { ObterGenerosResposta } from "../interfaces/ObterGeneros";
 
-export const GenerosService = {
-  obterGeneros,
-};
+export default class GenerosService {
+  static obterGeneros = async (): Promise<ObterGenerosResposta> => {
+    const response = await theMovieDBAPIClient.get(
+      `/genre/movie/list`,
+    );
+    return response.data;
+  }
+}

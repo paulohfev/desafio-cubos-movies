@@ -1,8 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../app/store';
-import { GenerosService } from '../services/generos.service';
+import GenerosService from '../services/generos.service';
+import { ObterGenerosResposta } from '../interfaces/ObterGeneros';
 
-const initialState: any = {};
+const initialState: ObterGenerosResposta = {
+  genres: []
+};
 
 export const obterGeneros = createAsyncThunk(
   'filmes/obterGeneros',

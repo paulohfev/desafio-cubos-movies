@@ -1,12 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../app/store';
-import { FilmesService } from '../services/filmes.service';
+import FilmesService from '../services/filmes.service';
+import { ObterFilmesParams, ObterFilmesResposta } from '../interfaces/ObterFilmes';
 
-const initialState: any = {};
+const initialState: ObterFilmesResposta = {
+  page: 1,
+  results: [],
+  total_pages: 1,
+  total_results: 1,
+};
 
 export const obterFilmes = createAsyncThunk(
   'filmes/obterFilmes',
-  async () => await FilmesService.obterFilmes()
+  async (params: ObterFilmesParams) => await FilmesService.obterFilmes(params)
 );
 
 export const filmesSlice = createSlice({
