@@ -1,5 +1,8 @@
 :root {
   --azul-primario: #0066b2;
   --azul-secundario: rgb(0, 183, 255);
+
   --cinza-primario: lightgrey;
+
+  --branco-primario: #ffffff;
 }

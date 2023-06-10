@@ -1,0 +1,22 @@
+.lista-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  .tag-genero-filme {
+    background-color: var(--branco-primario);
+    border: 1px solid var(--azul-primario);
+    border-radius: 16px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    width: fit-content;
+
+    span {
+      color: var(--azul-primario);
+      font-size: 14px;
+    }
+
+    &:not(:last-of-type) {
+      margin-right: 10px;
+    }
+  }
+}

@@ -1,8 +1,3 @@
-.poster {
-  height: 100%;
-  width: 200px;
-}
-
 .item-filme-container {
   display: flex;
   width: 100%;
@@ -10,52 +5,84 @@
   &:not(:last-of-type) {
     margin-bottom: 30px;
   }
-}
 
-.item-filme-conteudo {
-  background-color: var(--cinza-primario);
-  width: 100%;
-
-  .item-filme-sumario {
-    padding: 30px 30px 0;
+  .poster {
+    height: 100%;
+    width: 200px;
   }
-}
 
-.item-filme-cabecalho-container {
-  display: flex;
-  position: relative;
-
-  .item-filme-cabecalho {
+  .item-filme-conteudo {
+    background-color: var(--cinza-primario);
     width: 100%;
 
-    .item-filme-titulo {
-      background-color: var(--azul-primario);
-      color: var(--azul-secundario);
-      font-size: 28px;
-      font-weight: 500;
-      padding: 30px 30px 0 75px;
-    }
-
-    .item-filme-data-lancamento {
-      padding: 5px 30px 0 75px;
+    .item-filme-sumario {
+      padding: 30px 30px 0;
     }
   }
 
-  .item-filme-porcentagem-voto {
-    align-items: center;
-    background-color: var(--azul-primario);
-    border: 4px solid var(--azul-secundario);
-    border-radius: 50%;
-    bottom: 0;
-    color: var(--azul-secundario);
+  .item-filme-cabecalho-container {
     display: flex;
-    height: 50px;
-    font-weight: bold;
-    justify-content: center;
-    margin-left: 10px;
-    outline: 2px solid var(--azul-primario);
-    position: absolute;
-    z-index: 100;
-    width: 50px;
+    position: relative;
+
+    .item-filme-cabecalho {
+      width: 100%;
+
+      .item-filme-titulo {
+        background-color: var(--azul-primario);
+        color: var(--azul-secundario);
+        font-size: 28px;
+        font-weight: 500;
+        padding: 30px 30px 0 75px;
+      }
+
+      .item-filme-data-lancamento {
+        padding: 5px 30px 0 75px;
+      }
+    }
+
+    .item-filme-porcentagem-voto {
+      align-items: center;
+      background-color: var(--azul-primario);
+      border: 4px solid var(--azul-secundario);
+      border-radius: 50%;
+      bottom: 0;
+      color: var(--azul-secundario);
+      display: flex;
+      height: 50px;
+      font-weight: bold;
+      justify-content: center;
+      margin-left: 10px;
+      outline: 2px solid var(--azul-primario);
+      position: absolute;
+      z-index: 100;
+      width: 50px;
+    }
+  }
+
+  .item-filme-lista-generos {
+    padding: 30px 30px 30px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .item-filme-container {
+    display: block;
+
+    .poster {
+      width: 100%;
+    }
+
+    .item-filme-cabecalho-container {
+      .item-filme-cabecalho {
+        .item-filme-titulo {
+          padding: 10px 10px 20px;
+          text-align: center;
+        }
+
+        .item-filme-data-lancamento {
+          text-align: center;
+        }
+      }
+    }
   }
 }

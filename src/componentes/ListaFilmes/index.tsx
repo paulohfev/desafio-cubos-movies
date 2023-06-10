@@ -1,21 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Filme } from '../../interfaces/Filme';
 import { formatarData } from '../../utils/conteudo';
 import styles from './ListaFilmes.module.scss';
+import ListaGenerosFilme from '../ListaGenerosFilme';
 
 type Props = {
   filmes: Filme[];
 }
 
 const ListaFilmes: React.FC<Props> = ({ filmes }) => {
-  console.log(filmes)
-
-  // useEffect(() => {
-  //   fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_MOVIEDB_API_CHAVE}&language=pt-BR`)
-  //     .then(response => response.json())
-  //     .then(response => console.log(response))
-  //     .catch(err => console.error(err));
-  // }, [])
+  // console.log(filmes)
 
   return (
     <div>
@@ -43,6 +37,11 @@ const ListaFilmes: React.FC<Props> = ({ filmes }) => {
 
               <p className={styles['item-filme-sumario']}>{filme.overview}</p>
 
+              {filme.genre_ids && (
+                <div className={styles['item-filme-lista-generos']}>
+                  <ListaGenerosFilme idsGeneros={filme.genre_ids} />
+                </div>
+              )}              
             </div>
           </div>
         );

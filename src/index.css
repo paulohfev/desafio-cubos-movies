@@ -1,4 +1,5 @@
 @import './styles/cores';
+@import './styles/fonts.css';
 
 * {
   box-sizing: border-box;
