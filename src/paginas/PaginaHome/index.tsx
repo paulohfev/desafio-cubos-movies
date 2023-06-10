@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/store';
 import { obterFilmes, selectionarFilmes } from '../../slices/filmes.slice';
-import styles from './PaginaHome.module.scss';
 import ListaFilmes from '../../componentes/ListaFilmes';
+import Paginacao from '../../componentes/Paginacao';
+import styles from './PaginaHome.module.scss';
 
 const PaginaHome: React.FC = () => {
   const [valorPesquisa, setValorPesquisa] = useState('');
+  const [paginaAtual, setPaginaAtual] = useState(1);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     const data = {
+      page: paginaAtual,
       query: valorPesquisa
     }
     dispatch(obterFilmes(data));
-  }, [dispatch, valorPesquisa]);
+  }, [dispatch, paginaAtual, valorPesquisa]);
   const filmes = useAppSelector(selectionarFilmes);
 
   return (
@@ -29,6 +32,8 @@ const PaginaHome: React.FC = () => {
 
       <section>
         <ListaFilmes filmes={filmes.results} />
+
+        <Paginacao setPaginaAtual={setPaginaAtual} totalPaginas={filmes.total_pages} />
       </section>
     </div>
   )

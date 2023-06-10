@@ -1,7 +1,8 @@
 import { Filme } from "./Filme"
 
 export interface ObterFilmesParams {
-  query: string
+  page: number,
+  query: string,
 }
 
 export interface ObterFilmesResposta {
