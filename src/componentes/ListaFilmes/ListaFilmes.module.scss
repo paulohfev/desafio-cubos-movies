@@ -1,6 +1,10 @@
 .item-filme-container {
-  display: flex;
   width: 100%;
+
+  .item-filme-link {
+    display: flex;
+    text-decoration: none;
+  }
 
   &:not(:last-of-type) {
     margin-bottom: 30px;
