@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+# Desafio Listagem de Filmes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto foi criado utilizando React.js, Redux Toolkit e Docker.
+
+## Observações
+
+- Devido a limitações da API themoviedb, não foi possível limitar o número de resultados de filmes na página inicial em 5. O suporte para isso parece ter sido removido. Assim, haverá no máximo 20 resultados de filmes por página.
+
+- O parâmetro de consulta `idioma` (usado de acordo com as instruções na documentação da API) não conseguiu traduzir adequadamente os campos "status" e "idioma original do filme". Dessa forma, usei uma solução alternativa mapeada por meio de objetos de dados para extrair os valores traduzidos. Consulte o diretório `data` para obter mais contexto.
+
+## Começando
+
+Certifique-se de ter [Node](https://nodejs.org/), [Docker](https://www.docker.com/) e [Docker-Compose](https://docs.docker.com/compose/) instalado.
+
+Dentro do diretório raiz do projeto, execute o comando `docker compose build`. Isso criará uma imagem do contêiner que encapsula a presente solução.
+
+Dentro do diretório raiz, certifique-se de criar também um arquivo `.env`. Certifique-se de adicionar variáveis de ambientes com base no arquivo `.env.example`.
+
+Você precisará dos seguintes valores:
+
+- REACT_APP_MOVIEDB_API_CHAVE -> esta é a chave da API do themoviedb, para a qual você precisará se registrar no themoviedb para obter. Para referência - [aqui](https://developer.themoviedb.org/docs)
+
+- REACT_APP_MOVIEDB_API_URL=https://api.themoviedb.org/3
+
+## Commandos disponivéis
+
+Para rodar o projeto localmente, dentro do diretório root:
+
+### `npm run docker:start:dev`
+
+Roda a aplicação em um ambiente de desenvolvimento, dentro de um container Docker.
+Abra [http://localhost:3000](http://localhost:3000) para visualizá-lo dentro do navegador.
+
+<hr />
+
+# Film Listing Challenge
+
+This solution was created using React.js, Redux Toolkit, Redux Persist and Docker.
+
+## Observations
+
+- Due to limitations from the themoviedb API, it wasn't possible to limit the number of film results on the homepage by 5. Support for this seems to have been removed. As such, there will be at most 20 films results per page, at most.
+
+- The `language` query param (used per instructions in the API documentation) wasn't able to appropriate translate the "status" and "film original language" fields. As such, I used a workaround that mapped through data objects to extract the translated values. Please refer to the `data` directory for more context.
+
+## Getting started
+
+Be sure to have [Node](https://nodejs.org/), [Docker](https://www.docker.com/) and [Docker-compose](https://docs.docker.com/compose/) installed.
+
+Inside the root directory of the project, run the command `docker compose build`. This will build an image of the container that encapsulates the present solution.
+
+Inside the root directory, be sure to also create an `.env` file. Be sure to add environments variables based on the `.env.example` file.
+
+You will need the following values:
+
+- REACT_APP_MOVIEDB_API_CHAVE -> this is the themoviedb API key, to which you will need to register at themoviedb to gain. For reference - [here](https://developer.themoviedb.org/docs)
+
+- REACT_APP_MOVIEDB_API_URL=https://api.themoviedb.org/3
 
 ## Available Scripts
 
-In the project directory, you can run:
+To run the project locally, from the root directory:
 
-### `npm start`
+### `npm run docker:start:dev`
 
-Runs the app in the development mode.\
+Runs the app in the development mode in a Dockerized container.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
