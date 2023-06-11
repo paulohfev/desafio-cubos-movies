@@ -89,7 +89,7 @@ const PaginaFilmeDetalhes: React.FC = () => {
 
         {detalhesFilme.poster_path && (
           <div>
-            <img className={styles.poster} src={URLPosterFilme} />
+            <img alt={detalhesFilme.title} className={styles.poster} src={URLPosterFilme} />
           </div>
         )}
       </section>

@@ -34,7 +34,10 @@ const PaginaHome: React.FC = () => {
       </div>
 
       <section>
-        <ListaFilmes filmes={isEmpty(valorPesquisa) ? todosFilmes.results : filmes.results} />
+        <ListaFilmes
+          filmes={isEmpty(valorPesquisa) ? todosFilmes.results : filmes.results}
+          valorPesquisa={valorPesquisa}
+        />
 
         <Paginacao
           setPaginaAtual={setPaginaAtual}
