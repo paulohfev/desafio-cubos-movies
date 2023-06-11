@@ -4,9 +4,11 @@ import type { TypedUseSelectorHook } from 'react-redux';
 import filmesReducer from '../slices/filmes.slice';
 import todosFilmesReducer from '../slices/filmes.slice';
 import generosReducer from '../slices/generos.slice';
+import detalhesFilmePorIdReducer from '../slices/filmes.slice';
 
 export const store = configureStore({
   reducer: {
+    detalhesFilmePorId: detalhesFilmePorIdReducer,
     filmesPorPesquisa: filmesReducer,
     todosFilmes: todosFilmesReducer,
     generos: generosReducer,

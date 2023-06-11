@@ -1,0 +1,160 @@
+.container {
+  margin: 50px 0;
+  padding: 0 50px;
+
+  .secao-primario {
+    display: flex;
+
+    .container-conteudo {
+      background-color: var(--cinza-primario);
+      padding: 20px 30px;
+      width: 100%;
+    }
+
+    .poster {
+      height: 100%;
+      width: 450px;
+    }
+  }
+
+  .secao-cabecalho {
+    align-items: center;
+    background-color: var(--cinza-secundario);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px 15px 30px;
+
+    .titulo-filme {
+      color: var(--azul-primario);
+      font-weight: 500;
+    }
+  }
+
+  .titulo-secao {
+    border-bottom: 1px solid var(--azul-secundario);
+    color: var(--azul-primario);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  .secao-sinopse,
+  .secao-informacoes {
+    margin-bottom: 50px;
+  }
+
+  .lista-informacoes {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: 30px;
+    padding-inline-start: 0;
+
+    .lista-item-informacao {
+      margin-top: 20px;
+      text-align: center;
+  
+      &:not(:last-of-type) {
+        margin-right: 50px;
+      }
+    }
+
+    .lista-informacao-titulo {
+      color: var(--azul-primario);
+      font-weight: bold;
+    }
+  }
+
+  .informacoes-rodape {
+    display: flex;
+    justify-content: space-between;
+
+    .lista-generos-tags {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .tag-genero-filme {
+      background-color: var(--branco-primario);
+      border: 1px solid var(--azul-primario);
+      border-radius: 16px;
+      font-family: 'Abel';
+      height: fit-content;
+      margin-top: 10px;
+      padding: 5px 10px;
+      width: fit-content;
+  
+      span {
+        color: var(--azul-primario);
+        font-size: 14px;
+      }
+  
+      &:not(:last-of-type) {
+        margin-right: 10px;
+      }
+    }
+
+    .filme-porcentagem-voto {
+      align-items: center;
+      background-color: var(--azul-primario);
+      border: 7px solid var(--azul-secundario);
+      border-radius: 50%;
+      color: var(--azul-secundario);
+      display: flex;
+      height: 100px;
+      font-size: 30px;
+      font-weight: 500;
+      justify-content: center;
+      outline: 4px solid var(--azul-primario);
+      width: 100px;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    .secao-primario {
+      flex-direction: column-reverse;
+
+      .poster {
+        width: 100%;
+      }
+    }
+
+    .titulo-secao {
+      text-align: center;
+    }
+
+    .secao-cabecalho {
+      flex-direction: column;
+      text-align: center;
+
+      .titulo-filme {
+        margin-bottom: 20px;
+      }
+    }
+
+    .lista-informacoes {
+      align-items: center;
+      flex-direction: column;
+
+      .lista-item-informacao {
+        &:not(:last-of-type) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .informacoes-rodape {
+      align-items: center;
+      flex-direction: column;
+
+      .filme-porcentagem-voto {
+        font-size: 18px;
+        height: 70px;
+        margin-top: 20px;
+        width: 70px;
+      }
+    }
+  }
+}

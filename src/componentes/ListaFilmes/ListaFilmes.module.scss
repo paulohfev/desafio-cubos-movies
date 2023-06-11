@@ -2,8 +2,14 @@
   width: 100%;
 
   .item-filme-link {
+    color: inherit;
     display: flex;
     text-decoration: none;
+
+    &:active,
+    &:visited {
+      color: inherit;
+    }
   }
 
   &:not(:last-of-type) {

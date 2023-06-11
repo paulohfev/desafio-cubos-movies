@@ -1,6 +1,6 @@
 import React from 'react';
 import { Filme } from '../../interfaces/Filme';
-import { formatarData } from '../../utils/conteudo';
+import { formatarData, obterURLPosterFilme } from '../../utils/conteudo';
 import styles from './ListaFilmes.module.scss';
 import ListaGenerosFilme from '../ListaGenerosFilme';
 import { Link } from 'react-router-dom';
@@ -13,7 +13,7 @@ const ListaFilmes: React.FC<Props> = ({ filmes }) => {
   return (
     <div>
       {filmes?.map((filme) => {
-        const URLImagemPoster = `https://image.tmdb.org/t/p/original/${filme.poster_path}`;
+        const URLImagemPoster = obterURLPosterFilme(filme.poster_path);
         const votoPorcentagem = Math.floor((filme.vote_average/10) * 100) + '%'
 
         return (
