@@ -1,4 +1,4 @@
-.dot-pulse {
+.animacao-pulso {
   position: relative;
   left: -9999px;
   width: 10px;
@@ -7,11 +7,11 @@
   background-color: var(--azul-secundario);
   color: var(--azul-secundario);
   box-shadow: 9999px 0 0 -5px;
-  animation: dot-pulse 1.5s infinite linear;
+  animation: animacao-pulso 1.5s infinite linear;
   animation-delay: 0.25s;
 }
 
-.dot-pulse::before, .dot-pulse::after {
+.animacao-pulso::before, .animacao-pulso::after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -23,19 +23,19 @@
   color: var(--azul-secundario);
 }
 
-.dot-pulse::before {
+.animacao-pulso::before {
   box-shadow: 9984px 0 0 -5px;
-  animation: dot-pulse-before 1.5s infinite linear;
+  animation: animacao-pulso-before 1.5s infinite linear;
   animation-delay: 0s;
 }
 
-.dot-pulse::after {
+.animacao-pulso::after {
   box-shadow: 10014px 0 0 -5px;
-  animation: dot-pulse-after 1.5s infinite linear;
+  animation: animacao-pulso-after 1.5s infinite linear;
   animation-delay: 0.5s;
 }
 
-@keyframes dot-pulse-before {
+@keyframes animacao-pulso-before {
   0% {
     box-shadow: 9984px 0 0 -5px;
   }
@@ -47,7 +47,7 @@
   }
 }
 
-@keyframes dot-pulse {
+@keyframes animacao-pulso {
   0% {
     box-shadow: 9999px 0 0 -5px;
   }
@@ -59,7 +59,7 @@
   }
 }
 
-@keyframes dot-pulse-after {
+@keyframes animacao-pulso-after {
   0% {
     box-shadow: 10014px 0 0 -5px;
   }
