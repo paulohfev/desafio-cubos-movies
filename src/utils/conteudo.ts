@@ -1,3 +1,6 @@
+import { nomesLinguagens } from "../data/nomesLinguagens";
+import { statusFilme } from "../data/statusFilme";
+
 export const formatarData = (data: string) => {
   const novaData = new Date(data);
   const mes = novaData.getMonth();
@@ -18,4 +21,12 @@ export const converterTempo = (tempoEmMinutos: number) => {
 
 export const obterURLPosterFilme = (caminho: string) => {
   return `https://image.tmdb.org/t/p/original/${caminho}`;
+}
+
+export const obterNomeLinguagem = (codigoISO: string) => {
+  return nomesLinguagens[codigoISO];
+};
+
+export const obterStatusFilme = (status: string) => {
+  return statusFilme[status];
 }

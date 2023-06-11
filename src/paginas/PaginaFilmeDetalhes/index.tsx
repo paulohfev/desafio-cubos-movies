@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/store';
 import { obterDetalhesFilmePorID, selecionarDetalhesFilmePorId } from '../../slices/filmes.slice';
 import { obterVideoFilmePorID, selecioarVideoFilmePorId } from '../../slices/videos.slice';
-import { formatarData, converterTempo, obterURLPosterFilme } from '../../utils/conteudo';
+import { formatarData, converterTempo, obterURLPosterFilme, obterNomeLinguagem, obterStatusFilme } from '../../utils/conteudo';
 import { formatarValorMonetario } from '../../utils/moeda';
 import styles from './PaginaFilmesDetalhes.module.scss';
 import ListaVideos from '../../componentes/ListaVideos';
@@ -45,11 +45,11 @@ const PaginaFilmeDetalhes: React.FC = () => {
             <ul className={styles['lista-informacoes']}>
               <li className={styles['lista-item-informacao']}>
                 <p className={styles['lista-informacao-titulo']}>Situação</p>
-                <p>{detalhesFilme.status}</p>
+                <p>{obterStatusFilme(detalhesFilme.status)}</p>
               </li>
               <li className={styles['lista-item-informacao']}>
                 <p className={styles['lista-informacao-titulo']}>Idioma</p>
-                <p>{detalhesFilme.original_language}</p>
+                <p>{obterNomeLinguagem(detalhesFilme.original_language)}</p>
               </li>
               <li className={styles['lista-item-informacao']}>
                 <p className={styles['lista-informacao-titulo']}>Duração</p>
