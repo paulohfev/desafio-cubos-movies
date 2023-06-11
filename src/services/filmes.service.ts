@@ -1,4 +1,5 @@
 import theMovieDBAPIClient from "../app/axios";
+import { DetalhesFilme } from "../interfaces/DetalhesFilme";
 import { ObterFilmesParams, ObterFilmesResposta } from "../interfaces/ObterFilmes";
 
 export default class FilmesService {
@@ -14,7 +15,7 @@ export default class FilmesService {
     return response.data;
   }
 
-  static obterDetalhesFilmePorID = async (id: string) => {
+  static obterDetalhesFilmePorID = async (id: string): Promise<DetalhesFilme> => {
     const response = await theMovieDBAPIClient.get(`/movie/${id}`);
     return response.data;
   }

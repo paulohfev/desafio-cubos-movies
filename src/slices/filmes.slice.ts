@@ -40,7 +40,7 @@ export const obterTodosFilmes = createAsyncThunk(
 export const obterDetalhesFilmePorID = createAsyncThunk(
   'filmes/obterDetalhesFilmePorID',
   async (filmeId: string) => await FilmesService.obterDetalhesFilmePorID(filmeId)
-)
+);
 
 export const filmesPorPesquisaSlice = createSlice({
   name: 'filmes',
@@ -64,7 +64,7 @@ export const todosFilmesSlice = createSlice({
   }
 });
 
-export const detalhesFilmePorId = createSlice({
+export const detalhesFilmePorIdSlice = createSlice({
   name: 'detalhesFilmePorId',
   initialState: estadoInicialDetalhesFime,
   reducers: {},
@@ -82,5 +82,5 @@ export const selecionarDetalhesFilmePorId = (state: RootState) => state.detalhes
 export default combineReducers({
   filmesPorPesquisa: filmesPorPesquisaSlice.reducer,
   todosFilmes: todosFilmesSlice.reducer,
-  detalhesFilmePorId: detalhesFilmePorId.reducer,
+  detalhesFilmePorId: detalhesFilmePorIdSlice.reducer,
 })

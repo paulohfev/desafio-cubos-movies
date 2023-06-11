@@ -1,6 +1,10 @@
 .header {
   background-color: var(--azul-primario);
   padding: 25px;
+  
+  a {
+    text-decoration: none;
+  }
 
   .titulo {
     color: var(--azul-secundario);

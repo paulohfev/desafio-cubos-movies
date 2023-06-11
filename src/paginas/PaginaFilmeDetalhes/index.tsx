@@ -2,9 +2,11 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/store';
 import { obterDetalhesFilmePorID, selecionarDetalhesFilmePorId } from '../../slices/filmes.slice';
+import { obterVideoFilmePorID, selecioarVideoFilmePorId } from '../../slices/videos.slice';
 import { formatarData, converterTempo, obterURLPosterFilme } from '../../utils/conteudo';
 import { formatarValorMonetario } from '../../utils/moeda';
 import styles from './PaginaFilmesDetalhes.module.scss';
+import ListaVideos from '../../componentes/ListaVideos';
 
 const PaginaFilmeDetalhes: React.FC = () => {
   const { id: filmeId } = useParams();
@@ -13,12 +15,15 @@ const PaginaFilmeDetalhes: React.FC = () => {
   useEffect(() => {
     if (filmeId) {
       dispatch(obterDetalhesFilmePorID(filmeId));
+      dispatch(obterVideoFilmePorID(filmeId))
     }
   }, [dispatch, filmeId]);
   const detalhesFilme = useAppSelector(selecionarDetalhesFilmePorId).detalhesFilmePorId;
+  const videosFilme = useAppSelector(selecioarVideoFilmePorId);
+
   const lucroFilme = detalhesFilme.revenue - detalhesFilme.budget;
   const URLPosterFilme = obterURLPosterFilme(detalhesFilme.poster_path);
-  const votoPorcentagem = Math.floor((detalhesFilme.vote_average/10) * 100) + '%'
+  const votoPorcentagem = Math.floor((detalhesFilme.vote_average/10) * 100) + '%';
 
   return (
     <div className={styles.container}>
@@ -87,6 +92,10 @@ const PaginaFilmeDetalhes: React.FC = () => {
             <img className={styles.poster} src={URLPosterFilme} />
           </div>
         )}
+      </section>
+
+      <section>
+        <ListaVideos listaVideos={videosFilme.results} />
       </section>
     </div>
   );
